@@ -1,0 +1,9 @@
+note:
+node_modules file contains the express project generator. It has nothing to do with project.
+
+
+progress:
+1, generate the express project structure;
+2, current router: only home page;
+3, next:    design login page (how do we prompt login page?);
+            loading map;
