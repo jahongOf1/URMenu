@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Search from './components/Search';
+import SearchForm from './components/searchForm';
 import axios from 'axios';
+
+
 
 class App extends Component {
   
@@ -34,14 +36,13 @@ class App extends Component {
     // retrieving information from API renders the map
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
-        console.log(response.data.response.groups)
         this.setState({
           venues: response.data.response.groups[0].items
         }, this.renderMap())
       })
       .catch(error => {
         console.log(error)
-      });
+      });      
   }
 
   initMap = () => {
@@ -59,7 +60,11 @@ class App extends Component {
     this.state.venues.map(myVenue => {
       // sets content string into venue
       var contentString = myVenue.venue.name
-
+      function searchingFor(term){
+        return function(x){
+          return myVenue.venue;
+        }
+      }
       //sets the marker in the position
       var marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat , lng: myVenue.venue.location.lng},
@@ -84,7 +89,7 @@ class App extends Component {
       <main>
         <div id = "search">
           <p>Your Menu, your choice.</p>
-          <Search></Search>
+          <SearchForm></SearchForm>
         </div>
         <div id="map"></div>
         
