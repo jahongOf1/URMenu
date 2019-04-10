@@ -43,11 +43,15 @@ class SearchForm extends Component {
                 <form>
                     <input type="text"  id="searchbox" placeholder="Find your favorite food..." onChange= {this.searchHandler} value = {term} />
                 </form>
+                <div id = "restaurant_box_a">
                 {
-                    venues.filter(searchingFor(this.state.term)).map(venue => 
-                       <h1> {venue.name} </h1> 
+                    venues.filter(searchingFor(this.state.term)).map(venue =>
+                        <div id = "restaurant_box_b">
+                        <h1> {venue.name} </h1> 
+                       </div>
                     )
                 }
+                </div>
             </div>
           
         );

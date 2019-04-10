@@ -3,18 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node ./myexpress/routes/index.js",
+    "server": "nodemon ./myexpress/routes/index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
   "directories": {
     "doc": "doc"
   },
   "dependencies": {
-    "concurrency": "^0.1.4",
+    "concurrently": "^4.1.0",
     "express-generator": "^4.16.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.11"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rafagaia/Just-in-Time-Menu.git"
