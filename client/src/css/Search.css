@@ -1,0 +1,8 @@
+.Search {
+    background-color: coral;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    opacity: 0.5;
+    z-index: 10;
+}
