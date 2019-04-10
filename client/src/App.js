@@ -83,7 +83,7 @@ class App extends Component {
     return (
       <main>
         <div id = "search">
-          <p>searching box</p>
+          <p>Your Menu, your choice.</p>
           <Search></Search>
         </div>
         <div id="map"></div>
