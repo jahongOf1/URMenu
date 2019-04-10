@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import Search from './components/Search';
 import axios from 'axios';
 
 class App extends Component {
@@ -83,7 +83,12 @@ class App extends Component {
   render() {
     return (
       <main>
+        <div id = "search">
+          <p>searching box</p>
+          <Search></Search>
+        </div>
         <div id="map"></div>
+        
       </main>
     );
   }
