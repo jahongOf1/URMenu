@@ -46,12 +46,19 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
+#searchbox {
+  font-family: 'Times' ;
+  text-emphasis: bold;
+}
 #search {
+  border-width: 50px;
+  border-radius: 15px;
   background-color: coral;
-  width: 50%;
-  height: 80px;
+  width: 40%;
+  height: 90px;
+  text-align: center;
+  font-family: Times;
   position: absolute;
   opacity: 0.8;
-  z-index: 10;
+  z-index: 15;
 }

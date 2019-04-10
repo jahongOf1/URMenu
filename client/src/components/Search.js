@@ -14,8 +14,8 @@ class Search extends Component {
  render() {
    return (
      <form >
-       <input
-         placeholder="Search for..."
+       <input id="searchbox"
+         placeholder="Find your favorite food..."
          ref={input => this.search = input}
          onChange={this.handleInputChange}
        />
