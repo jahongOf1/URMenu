@@ -79,10 +79,14 @@ html, body {
   border-width: medium;
   border-color: blue;
   background-color: whitesmoke;
-  margin: 1.3em 0.1em 0em 1em;
+  margin: 1.3em 0em 0em 1em;
 }
 
-#venue_name, #venue_addr, #venue_genre
+#map
 {
-  margin: 1px;
+  width: 60vw;
+}
+li
+{
+  list-style-type: none;
 }
