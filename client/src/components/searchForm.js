@@ -6,20 +6,20 @@ const venues = [
         name: "iTea",
         address: "1 dummy",
         genre: "Cafe",
-        menu: "Lorem ipsum dolor sit amet, consectetur adipiscing elit\n Condimentum ligula hendrerit donec tortor ac, ornare cursus pharetra montes\n Lobortis orci placerat vehicula dignissim ligula, fermentum maecenas urna\n Neque sed curabitur rhoncus malesuada, nascetur varius\n Aliquam lacinia velit conubia id, nulla etiam\n Potenti tincidunt torquent purus sociosqu scelerisque, non integer aliquam\n Mi dictum proin sollicitudin velit, egestas fusce ad\n Aptent posuere ad risus tempus primis, vulputate habitant dui. Faucibus dictumst ornare erat sem, odio gravida aenean.\n Potenti sociis ad nulla vehicula, habitant nisi."
+        menu: [{name:"Panda Tea", price:"5.99", diet:""}, {name:"Matcha", price:"4.99", diet:""}, {name:"Watermelon", price:"5.99", diet:["gluten-free", "vegan"]}]
     },
     {
         name: "O Sushi",
         address: "2 dummy",
         genre: "Japanese",
-        menu: "Lorem ipsum dolor sit amet, consectetur adipiscing elit\n Condimentum ligula hendrerit donec tortor ac, ornare cursus pharetra montes\n Lobortis orci placerat vehicula dignissim ligula, fermentum maecenas urna\n Neque sed curabitur rhoncus malesuada, nascetur varius\n Aliquam lacinia velit conubia id, nulla etiam\n Potenti tincidunt torquent purus sociosqu scelerisque, non integer aliquam\n Mi dictum proin sollicitudin velit, egestas fusce ad\n Aptent posuere ad risus tempus primis, vulputate habitant dui. Faucibus dictumst ornare erat sem, odio gravida aenean.\n Potenti sociis ad nulla vehicula, habitant nisi."
+        menu: [{name:"California Rolls", price:"3.99", diet:""}, {name:"Soy Paper Roll", price:"7.99", diet:["gluten-free",]},]
 
     },
     {
         name: "Cocurry",
         address: "3 dummy",
         genre: "Thai",
-        menu: "Lorem ipsum dolor sit amet, consectetur adipiscing elit\n Condimentum ligula hendrerit donec tortor ac, ornare cursus pharetra montes\n Lobortis orci placerat vehicula dignissim ligula, fermentum maecenas urna\n Neque sed curabitur rhoncus malesuada, nascetur varius\n Aliquam lacinia velit conubia id, nulla etiam\n Potenti tincidunt torquent purus sociosqu scelerisque, non integer aliquam\n Mi dictum proin sollicitudin velit, egestas fusce ad\n Aptent posuere ad risus tempus primis, vulputate habitant dui. Faucibus dictumst ornare erat sem, odio gravida aenean.\n Potenti sociis ad nulla vehicula, habitant nisi."
+        menu: [{name:"Coconut Curry", price:"10.99", diet:"vegetarian"}, ]
 
     }
 
@@ -32,6 +32,23 @@ function searchingFor(term){
         x.genre.toLowerCase().includes(term.toLowerCase()) ||
         !term;
     }
+}
+
+function MenuList(menu) {
+    return (
+        <ul>
+            {menu.map((item, i) => 
+                {
+                    return  ( 
+                        <li key={i}> {item.name} - {item.price} </li> 
+                        )
+                    
+                
+                }
+            
+            )}
+        </ul>
+    );
 }
 
 class SearchForm extends Component {
@@ -56,7 +73,7 @@ class SearchForm extends Component {
 
         return (
             <div>
-                <form>
+                <form> 
                     <input type="text"  id="searchbox" placeholder="Find your favorite food..." onChange= {this.searchHandler} value = {term} />
                 </form>
                 <div id = "restaurant_box_a">
@@ -68,7 +85,11 @@ class SearchForm extends Component {
                             arrow = "false"
                             closeOnDocumentClick>
                                 
-                                {venue.menu}
+                                {
+                                   MenuList(venue.menu)
+
+
+                                }
                             </Popup>
                             <li id="venue_addr"> {venue.address}</li>
                             <li id="venue_genre">{venue.genre} </li>

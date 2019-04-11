@@ -82,6 +82,10 @@ html, body {
   margin: 1.3em 0em 0em 1em;
 }
 
+#menu
+{
+  z-index: 50;
+}
 
 li
 {
