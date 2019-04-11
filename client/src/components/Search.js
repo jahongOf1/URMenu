@@ -33,18 +33,18 @@ class Search extends Component {
     })
   }
 
-  render() {
-    return (
-      <form>
-        <input
-          placeholder="Search for..."
-          ref={input => this.search = input}
-          onChange={this.handleInputChange}
-        />
-        <ResultList results={this.state.results} />
-      </form>
-    )
-  }
+ render() {
+   return (
+     <form >
+       <input id="searchbox"
+         placeholder="Find your favorite food..."
+         ref={input => this.search = input}
+         onChange={this.handleInputChange}
+       />
+       {/* <p>{this.state.query}</p> */}
+     </form>
+   )
+ }
 }
 
 export default Search
