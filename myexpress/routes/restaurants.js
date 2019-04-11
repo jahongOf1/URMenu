@@ -43,10 +43,13 @@ router.get('/:name', function(req, res, next) {
           documents.forEach(function(x) {
             reg.push({
               'name':x.venue.name,
+              'address': x.venue.location.address,
               'location': {
                   'x': x.venue.location.lat,
                   'y': x.venue.location.lng
-              }
+              },
+              'genre': x.venue.categories.name,
+              'menu': x.menu
             })
           });
           res.setHeader('Content-Type', 'application/json');
