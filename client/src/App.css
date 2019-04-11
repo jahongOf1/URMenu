@@ -79,4 +79,10 @@ html, body {
   border-width: medium;
   border-color: blue;
   background-color: whitesmoke;
+  margin: 1.3em 0.1em 0em 1em;
+}
+
+#venue_name, #venue_addr, #venue_genre
+{
+  margin: 1px;
 }
