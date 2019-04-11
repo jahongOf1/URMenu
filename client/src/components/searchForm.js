@@ -2,19 +2,30 @@ import React, { Component } from 'react'
 const venues = [
     {
         name: "iTea",
+        address: "1 dummy",
+        genre: "Cafe"
     },
     {
-        name: "O Sushi"
+        name: "O Sushi",
+        address: "2 dummy",
+        genre: "Japanese"
+
     },
     {
-        name: "Cocurry"
+        name: "Cocurry",
+        address: "3 dummy",
+        genre: "Thai"
+
     }
 
 ]
 
 function searchingFor(term){
     return function(x){
-        return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
+        return x.name.toLowerCase().includes(term.toLowerCase()) || 
+        x.address.toLowerCase().includes(term.toLowerCase()) ||
+        x.genre.toLowerCase().includes(term.toLowerCase()) ||
+        !term;
     }
 }
 
@@ -47,7 +58,9 @@ class SearchForm extends Component {
                 {
                     venues.filter(searchingFor(this.state.term)).map(venue =>
                         <div id = "restaurant_box_b">
-                        <h1> {venue.name} </h1> 
+                            <p id="venue_name"> {venue.name} </p> 
+                            <p id="venue_addr"> {venue.address}</p>
+                            <p id="venue_genre"> {venue.genre}</p>
                        </div>
                     )
                 }

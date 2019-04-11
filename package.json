@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "client-install": "npm install --prefix client",
-    "start": "node ./myexpress/routes/index.js",
-    "server": "nodemon ./myexpress/routes/index.js",
+    "start": "node myexpress/bin/www",
+    "server": "nodemon myexpress/bin/www",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -31,3 +32,4 @@
   },
   "homepage": "https://github.com/rafagaia/Just-in-Time-Menu#readme"
 }
+

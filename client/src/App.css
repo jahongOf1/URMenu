@@ -68,10 +68,15 @@ html, body {
 #restaurant_box_a
 {
   height: 100vh;
+  z-index: 15;
+
 }
 
 #restaurant_box_b
 {
-  width: 80%;
-  height: 20vh;
+  width: 75%;
+  height: 10vh;
+  border-width: medium;
+  border-color: blue;
+  background-color: whitesmoke;
 }
