@@ -20,9 +20,13 @@ router.get('/', function(req, res, next) {
       db.collection('foursquare_restaurant').find().toArray(function(err, documents) {
           var reg = [];
           documents.forEach(function(x) {
-            reg.push({'name': x.venue.name, 
+            reg.push({
+            'name': x.venue.name, 
             'address': x.venue.location.address,
-            'location': {lat: x.venue.location.lat, lng: x.venue.location.lng}});
+            'location': {lat: x.venue.location.lat, lng: x.venue.location.lng},
+            'menu': x.menu
+          });
+           
           });
           res.setHeader('Content-Type', 'application/json');
           res.end(JSON.stringify(reg)); 
@@ -44,9 +48,8 @@ router.get('/:name', function(req, res, next) {
       db.collection('foursquare_restaurant').find(
       { $or: [{ 'venue.name': new RegExp(`.*${req.params.name}`)},
 			 { 'venue.location.address': new RegExp(`.*${req.params.name}`)},  
-			 { 'venue.menu.vegan': new RegExp(`.*${req.params.name}`)},
-			 { 'venue.menu.vegetarian': new RegExp(`.*${req.params.name}`)},
-			 { 'venue.menu.gluten-fee': new RegExp(`.*${req.params.name}`)} ]}
+       { 'venue.menu': new RegExp(`.*${req.params.name}`)}
+       ]}
         // {'venue.name': new RegExp(`.*${req.params.name}`)}
         // {'venue.name': `${req.params.name}`}
       ).toArray(function(err, documents) {
@@ -60,7 +63,7 @@ router.get('/:name', function(req, res, next) {
                   'y': x.venue.location.lng
               },
               'genre': x.venue.categories.name,
-              'menu': x.menu
+              'menu': x.venue.menu
             })
           });
           res.setHeader('Content-Type', 'application/json');

@@ -65,41 +65,6 @@ class App extends Component {
 
   createCheckboxes = () => OPTIONS.map(this.createCheckbox);
 
-//   render() {
-//     return (
-//       <div className="container">
-//         <div className="row mt-5">
-//           <div className="col-sm-12">
-//             <form onSubmit={this.handleFormSubmit}>
-//               {this.createCheckboxes()}
-
-//               <div className="form-group mt-2">
-//                 <button
-//                   type="button"
-//                   className="btn btn-outline-primary mr-2"
-//                   onClick={this.selectAll}
-//                 >
-//                   Select All
-//                 </button>
-//                 <button
-//                   type="button"
-//                   className="btn btn-outline-primary mr-2"
-//                   onClick={this.deselectAll}
-//                 >
-//                   Deselect All
-//                 </button>
-//                 <button type="submit" className="btn btn-primary">
-//                   Save
-//                 </button>
-//               </div>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
   
   // call get Venues
   componentDidMount() {
@@ -116,7 +81,7 @@ class App extends Component {
 
     // getting venues from API
     // retrieving information from API renders the map
-    axios.get("http://localhost:5000/restaurants/")
+    axios.get("http://localhost:5000/restaurants/", { useNewUrlParser: true})
       .then(response => {
         this.setState({
           venues: response.data
