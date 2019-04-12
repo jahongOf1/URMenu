@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import SearchForm from './components/searchForm';
-import axios from 'axios';
 import Checkbox from './components/checkboxes';
+import axios from 'axios'
 
 const OPTIONS = ["One", "Two", "Three"];
 
@@ -108,32 +108,35 @@ class App extends Component {
 
 //map renderin function
   renderMap = () => {
-    loadScript("https://maps.googleapis.com/maps/api/js?key= AIzaSyAAT6-dWLvHbxFocWvYgmdEifZGFTWr0lk&callback=initMap")
+    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAAT6-dWLvHbxFocWvYgmdEifZGFTWr0lk&callback=initMap")
     window.initMap = this.initMap;
   }
   // gets information by foursquare api
   getVenues = () => {
-    const endPoint = "https://api.foursquare.com/v2/venues/explore?"
-    const parameters = {
-      ll: "37.529659, -122.040237",
-      query: "food cafe",
-      client_id: "W2U3DBQDEGBNLJ3LNWS4RSST33R3XP3J2TD0GMNE1G1W4TP5",
-      client_secret: "LYYCAIVJQDS5RAGMHQY4CAQWFFAW2IV0CU4YFE23WFHWQPAN",
-      v: "20190201" 
-    };
+
     // getting venues from API
     // retrieving information from API renders the map
-    axios.get(endPoint + new URLSearchParams(parameters))
+    axios.get("http://localhost:5000/restaurants/")
       .then(response => {
         this.setState({
-          venues: response.data.response.groups[0].items
+          venues: response.data
         }, this.renderMap())
       })
       .catch(error => {
         console.log(error)
-      });      
+      });   
+    // fetch("http://localhost:5000/restaurants/",{'mode': 'no-cors'})
+    //     .then(
+    //     (result) => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         items: result.name
+    //       })
+    //       .catch(error => {
+    //         console.log(error)
+    //       });   
+    //     });
   }
-
   initMap = () => {
     // coordinates and zoom for map
     const map = new window.google.maps.Map(document.getElementById('map'), {
@@ -148,17 +151,18 @@ class App extends Component {
     //
     this.state.venues.map(myVenue => {
       // sets content string into venue
-      var contentString = myVenue.venue.name
+      var contentString = "<p>" + myVenue.name + "</p>" + "<p>" + myVenue.address + "</p>" 
       function searchingFor(term){
         return function(x){
-          return myVenue.venue;
+          console.log(myVenue.location)
+          return myVenue;
         }
       }
       //sets the marker in the position
       var marker = new window.google.maps.Marker({
-        position: {lat: myVenue.venue.location.lat , lng: myVenue.venue.location.lng},
+        position: {lat: myVenue.location.lat , lng: myVenue.location.lng},
         map: map,
-        title: myVenue.venue.name
+        title: myVenue.name
       })
       // ads a listener to marker where clicking will bring 
       // up infowindow
