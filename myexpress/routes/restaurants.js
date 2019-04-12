@@ -20,7 +20,9 @@ router.get('/', function(req, res, next) {
       db.collection('foursquare_restaurant').find().toArray(function(err, documents) {
           var reg = [];
           documents.forEach(function(x) {
-            reg.push(x.venue.name);
+            reg.push({'name': x.venue.name, 
+            'address': x.venue.location.address,
+            'location': {lat: x.venue.location.lat, lng: x.venue.location.lng}});
           });
           res.setHeader('Content-Type', 'application/json');
           res.end(JSON.stringify(reg)); 
