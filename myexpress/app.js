@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var restaurantsRouter = require('./routes/restaurants');
@@ -17,7 +17,7 @@ var app = express();
 
 //serve static file instad of view engine
 
-
+app.options('*', cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
