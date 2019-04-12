@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import {slide as Menu} from 'react-burger-menu';
 import SearchForm from './components/searchForm';
 import Checkbox from './components/checkboxes';
 import axios from 'axios'
@@ -28,7 +29,6 @@ class App extends Component {
       }));
     });
   };
-
 
   selectAll = () => this.selectAllCheckboxes(true);
   deselectAll = () => this.selectAllCheckboxes(false);
@@ -64,42 +64,6 @@ class App extends Component {
   );
 
   createCheckboxes = () => OPTIONS.map(this.createCheckbox);
-
-//   render() {
-//     return (
-//       <div className="container">
-//         <div className="row mt-5">
-//           <div className="col-sm-12">
-//             <form onSubmit={this.handleFormSubmit}>
-//               {this.createCheckboxes()}
-
-//               <div className="form-group mt-2">
-//                 <button
-//                   type="button"
-//                   className="btn btn-outline-primary mr-2"
-//                   onClick={this.selectAll}
-//                 >
-//                   Select All
-//                 </button>
-//                 <button
-//                   type="button"
-//                   className="btn btn-outline-primary mr-2"
-//                   onClick={this.deselectAll}
-//                 >
-//                   Deselect All
-//                 </button>
-//                 <button type="submit" className="btn btn-primary">
-//                   Save
-//                 </button>
-//               </div>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
   
   // call get Venues
   componentDidMount() {
@@ -111,6 +75,7 @@ class App extends Component {
     loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAAT6-dWLvHbxFocWvYgmdEifZGFTWr0lk&callback=initMap")
     window.initMap = this.initMap;
   }
+
   // gets information by foursquare api
   getVenues = () => {
 
@@ -125,18 +90,8 @@ class App extends Component {
       .catch(error => {
         console.log(error)
       });   
-    // fetch("http://localhost:5000/restaurants/",{'mode': 'no-cors'})
-    //     .then(
-    //     (result) => {
-    //       this.setState({
-    //         isLoaded: true,
-    //         items: result.name
-    //       })
-    //       .catch(error => {
-    //         console.log(error)
-    //       });   
-    //     });
   }
+
   initMap = () => {
     // coordinates and zoom for map
     const map = new window.google.maps.Map(document.getElementById('map'), {
@@ -148,7 +103,6 @@ class App extends Component {
     // creates variable infowindow
     var infowindow = new window.google.maps.InfoWindow()
 
-    //
     this.state.venues.map(myVenue => {
       // sets content string into venue
       var contentString = "<p>" + myVenue.name + "</p>" + "<p>" + myVenue.address + "</p>" 
@@ -176,52 +130,47 @@ class App extends Component {
     });
     
   }
+  
   //render map in html
   render() {
     return (
       <main>
-        <div id = "search">
-          <p>Your Menu, your choice.</p>
-          <SearchForm></SearchForm>          
+        <Menu>
+        <div id="page-wrap">
+          <div id = "search">
+            <p>Your Menu, your choice.</p>
+            <SearchForm/>       
+          </div>
+          <div className="container">
+              <form onSubmit={this.handleFormSubmit}>
+                {this.createCheckboxes()}
+                <div className="form-group mt-2">
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary mr-2"
+                    onClick={this.selectAll}
+                  >
+                    Select All
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary mr-2"
+                    onClick={this.deselectAll}
+                  >
+                    Deselect All
+                  </button>
+                  <button type="submit" className="btn btn-primary">
+                    Save
+                  </button>
+                </div>
+              </form>
+          </div>
         </div>
-
-        <div className="container">
-         {/* <div className="row mt-5">
-           <div className="col-sm-12"> */}
-             <form onSubmit={this.handleFormSubmit}>
-               {this.createCheckboxes()}
-
-               <div className="form-group mt-2">
-                 <button
-                  type="button"
-                  className="btn btn-outline-primary mr-2"
-                  onClick={this.selectAll}
-                >
-                  Select All
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-primary mr-2"
-                  onClick={this.deselectAll}
-                >
-                  Deselect All
-                </button>
-                <button type="submit" className="btn btn-primary">
-                  Save
-                </button>
-              </div>
-            </form>
-          {/* </div>
-        </div> */}
-      </div>
-
-
-      <div id="map"> </div>
-        
+        </Menu>
+        <div id="map"> </div>
       </main>
     );
-  }
-
+  };
 }
 
 

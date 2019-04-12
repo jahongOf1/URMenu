@@ -78,7 +78,7 @@ class SearchForm extends Component {
                    <input type="text" name="search" id="searchbox" placeholder="Find your favorite food..." onChange= {this.searchHandler} value = {term} />
                    <button>Find Food!</button>
                </form>
-               <div id = "restaurant_box_a">
+            {/*    <div id = "restaurant_box_a">
                {
                    venues.filter(searchingFor(this.state.term)).map(venue =>
                        <div id = "restaurant_box_b">
@@ -86,11 +86,8 @@ class SearchForm extends Component {
                            <Popup id = "menu"  trigger={<li className="button" id="venue_name">{venue.name} </li>}
                            arrow = "false"
                            closeOnDocumentClick>
-
                                {
                                   MenuList(venue.menu)
-
-
                                }
                            </Popup>
                            <li id="venue_addr"> {venue.address}</li>
@@ -99,11 +96,11 @@ class SearchForm extends Component {
                       </div>
                    )
                }
-               </div>
+               </div> */}
            </div>
 
        );
    }
 }
 
-export default SearchForm
+export default SearchForm;
