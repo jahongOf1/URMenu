@@ -56,30 +56,36 @@ html, body {
   border-width: 50px;
   border-radius: 15px;
   background-color: coral;
-  width: 40%;
-  height: 90px;
+  width: 35%;
+  height: 210px;
   text-align: center;
   font-family: Times;
   position: absolute;
   opacity: 0.8;
   z-index: 15;
+  padding: 5px;
+  margin-bottom: 1vw;
+  float: left;
 }
 
 #restaurant_box_a
 {
-  height: 100vh;
+  padding: 0.01em;
+  margin: 4em;
   z-index: 15;
-
+  width: 100%;
 }
 
 #restaurant_box_b
 {
-  width: 75%;
-  height: 10vh;
+  width: 85%;
+  height: 100%;
   border-width: medium;
   border-color: blue;
   background-color: whitesmoke;
-  margin: 1.3em 0em 0em 1em;
+  /* margin: 1em 0 0 1em; */
+  margin-top: 50px;
+  margin-left: -45px;
 }
 
 #menu
@@ -90,4 +96,10 @@ html, body {
 li
 {
   list-style-type: none;
+}
+
+.container{
+  position: absolute;
+  z-index: 50;
+  margin-top: 120px;
 }

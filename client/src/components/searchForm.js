@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Popup from 'reactjs-popup'
+import Filter from './Filter.jsx'
 
 const venues = [
     {
@@ -41,11 +42,8 @@ function MenuList(menu) {
                 {
                     return  ( 
                         <li key={i}> {item.name} - {item.price} </li> 
-                        )
-                    
-                
+                        )                
                 }
-            
             )}
         </ul>
     );
@@ -59,22 +57,26 @@ class SearchForm extends Component {
             venues: venues,
             term: '',
         }
-
         this.searchHandler = this.searchHandler.bind(this);
-
     }
 
     searchHandler(event) {
-        this.setState({ term: event.target.value })
+        this.setState({ term: event.target.value });
+
+    //     fetch('/api/form-submit-url', {
+    //        method: 'GET',
+    //        body: data,
+    //     });
     }
 
     render() {
         const {term, venues} = this.state
-
+//change <form> to <form onSubmit={this.handleSubmit}>
         return (
             <div>
                 <form> 
-                    <input type="text"  id="searchbox" placeholder="Find your favorite food..." onChange= {this.searchHandler} value = {term} />
+                    <input type="text" name="search" id="searchbox" placeholder="Find your favorite food..." onChange= {this.searchHandler} value = {term} />
+                    <button>FIND Foods</button>
                 </form>
                 <div id = "restaurant_box_a">
                 {
