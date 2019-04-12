@@ -1,7 +1,11 @@
 var express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 var router = express.Router();
-// var restaurant_ = require('../model/restaurant');
+
+// var corsOptions = {
+//   orgin:'http:localhost:5000',
+//   optionsSuccessStatus:200
+// }
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -13,8 +17,7 @@ router.get('/', function(req, res, next) {
     else
     {
       const db = client.db('test');
-      var reg = '';
-      const cursor = db.collection('foursquare_restaurant').find().toArray(function(err, documents) {
+      db.collection('foursquare_restaurant').find().toArray(function(err, documents) {
           var reg = [];
           documents.forEach(function(x) {
             reg.push(x.venue.name);
@@ -35,9 +38,15 @@ router.get('/:name', function(req, res, next) {
     else
     {
       const db = client.db('test');
-      const cursor = db.collection('foursquare_restaurant').find(
+      // var expr = new RegExp(`.*${req.params.name}`);
+      db.collection('foursquare_restaurant').find(
+      { $or: [{ 'venue.name': new RegExp(`.*${req.params.name}`)},
+			 { 'venue.location.address': new RegExp(`.*${req.params.name}`)},  
+			 { 'venue.menu.vegan': new RegExp(`.*${req.params.name}`)},
+			 { 'venue.menu.vegetarian': new RegExp(`.*${req.params.name}`)},
+			 { 'venue.menu.gluten-fee': new RegExp(`.*${req.params.name}`)} ]}
         // {'venue.name': new RegExp(`.*${req.params.name}`)}
-        {'venue.name': `${req.params.name}`}
+        // {'venue.name': `${req.params.name}`}
       ).toArray(function(err, documents) {
           var reg = [];
           documents.forEach(function(x) {
