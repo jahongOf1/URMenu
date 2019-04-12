@@ -107,7 +107,87 @@ class App extends Component {
     const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat:  37.529659, lng: -122.040237},
       zoom: 13.5,
-      mapTypeControl: false
+      mapTypeControl: false,
+      styles: [
+        {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+        {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+        {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+        {
+          featureType: 'administrative.locality',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#d59563'}]
+        },
+        {
+          featureType: 'poi',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#d59563'}]
+        },
+        {
+          featureType: 'poi.park',
+          elementType: 'geometry',
+          stylers: [{color: '#263c3f'}]
+        },
+        {
+          featureType: 'poi.park',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#6b9a76'}]
+        },
+        {
+          featureType: 'road',
+          elementType: 'geometry',
+          stylers: [{color: '#38414e'}]
+        },
+        {
+          featureType: 'road',
+          elementType: 'geometry.stroke',
+          stylers: [{color: '#212a37'}]
+        },
+        {
+          featureType: 'road',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#9ca5b3'}]
+        },
+        {
+          featureType: 'road.highway',
+          elementType: 'geometry',
+          stylers: [{color: '#746855'}]
+        },
+        {
+          featureType: 'road.highway',
+          elementType: 'geometry.stroke',
+          stylers: [{color: '#1f2835'}]
+        },
+        {
+          featureType: 'road.highway',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#f3d19c'}]
+        },
+        {
+          featureType: 'transit',
+          elementType: 'geometry',
+          stylers: [{color: '#2f3948'}]
+        },
+        {
+          featureType: 'transit.station',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#d59563'}]
+        },
+        {
+          featureType: 'water',
+          elementType: 'geometry',
+          stylers: [{color: '#17263c'}]
+        },
+        {
+          featureType: 'water',
+          elementType: 'labels.text.fill',
+          stylers: [{color: '#515c6d'}]
+        },
+        {
+          featureType: 'water',
+          elementType: 'labels.text.stroke',
+          stylers: [{color: '#17263c'}]
+        }
+      ]
     });
 
     // creates variable infowindow
@@ -145,48 +225,21 @@ class App extends Component {
   render() {
     return (
       <main>
-        <div id = "search">
-          <p>Your Menu, your choice.</p>
-          <SearchForm></SearchForm>          
-        </div>
-
         <div className="container">
-         {/* <div className="row mt-5">
-           <div className="col-sm-12"> */}
-             <form onSubmit={this.handleFormSubmit}>
-               {this.createCheckboxes()}
-
-               <div className="form-group mt-2">
-                 <button
-                  type="button"
-                  className="btn btn-outline-primary mr-2"
-                  onClick={this.selectAll}
-                >
-                  Select All
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-primary mr-2"
-                  onClick={this.deselectAll}
-                >
-                  Deselect All
-                </button>
-                <button type="submit" className="btn btn-primary">
-                  Save
-                </button>
-              </div>
+          <div id = "search">
+            <p>URMenu</p>
+            <SearchForm></SearchForm>
+          </div>
+          <div id="check-boxes">
+            <form onSubmit={this.handleFormSubmit}>
+              {this.createCheckboxes()}
             </form>
-          {/* </div>
-        </div> */}
-      </div>
-
-
-      <div id="map"> </div>
-        
+          </div>
+        </div>
+        <div id="map"> </div>
       </main>
     );
   }
-
 }
 
 
