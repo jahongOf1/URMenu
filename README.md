@@ -17,19 +17,36 @@ Due to limited time, we could only implement basic functions such
 as map of Newark, map markers, and front-end search fitler.
 
 ## Getting Started
-<coming soon>
+
+to run:
+```
+npm run dev 
+```
+localhost:3000 for front-end interface
+localhost:5000 for db backend
 
 ### Prerequisites
 
 ```
-NodeJS 
-NPM
+NodeJs - ver. 11.14.0 
+NPM - ver. 6.9.0
 ```
+
+
 
 ### Installing
 
+0. Install or update NPM to ver. 6.9.0 
+Install or update NodeJS ver. 11.14.0
+
+In root folder:
+```
+npm run client-install 
 ```
 
+In myexpress folder:
+```
+npm run install 
 ```
 
 ## Deployment
