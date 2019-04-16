@@ -21,9 +21,10 @@ as map of Newark, map markers, and front-end search fitler.
 
 ### Prerequisites
 
+'''
 NodeJs
 NPM
-
+'''
 
 ### Installing
 
@@ -38,19 +39,19 @@ workaround function.
 
 ## Built With
 
-* [ReactJS] - front end API
-* [Google Maps API]
-* [NodeJS]
-* [Express]
-* [MongoDB Atlas]
-* [Foursquare API] -for prototyping
+* [ReactJS](https://reactjs.org/) - front end framework
+* [Google Maps API](https://developers.google.com/maps/documentation/) - API library for maps
+* [NodeJS](https://nodejs.org) - and ..
+* [Express](https://expressjs.com/) - Express to form the back-end framwork
+* [MongoDB Atlas] (https://www.mongodb.com/cloud/atlas) - cloud db used to store and pull data from
+* [Foursquare API] (https://developer.foursquare.com/) - API used during development.
 
 ## Contributing
 
+Jae Hong - myself, front-end development
+
 
 ## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
