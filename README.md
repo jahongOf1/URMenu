@@ -22,7 +22,7 @@ as map of Newark, map markers, and front-end search fitler.
 ### Prerequisites
 
 ```
-NodeJs
+NodeJS 
 NPM
 ```
 
@@ -34,8 +34,12 @@ NPM
 
 ## Deployment
 
-In the current build we do not recommend deploying it since it has certain security flaws that make it vulnerable such as CORS
-workaround function.
+In the current build, we do not recommend deploying it since it.
+Due to the rushed nature of the hackathon we were forced to build 
+CORS workaround function to make some things work. 
+
+I'm only a front-end engineer.
+Don't @ me.
 
 ## Built With
 
@@ -58,7 +62,7 @@ This project is licensed under the APACHE License - see the [LICENSE.md](LICENSE
 ## Acknowledgments
 
 * 42 Silicon Valley for setting up the Hackathon
-* Newark, CA for 
+* Newark, CA for giving us the ideas for the project.
 
 
 
