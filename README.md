@@ -43,8 +43,8 @@ workaround function.
 * [Google Maps API](https://developers.google.com/maps/documentation/) - API library for maps
 * [NodeJS](https://nodejs.org) - and ..
 * [Express](https://expressjs.com/) - Express to form the back-end framwork
-* [MongoDB Atlas] (https://www.mongodb.com/cloud/atlas) - cloud db used to store and pull data from
-* [Foursquare API] (https://developer.foursquare.com/) - API used during development.
+* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) - cloud db used to store and pull data from
+* [Foursquare API](https://developer.foursquare.com/) - API used during development.
 
 ## Contributing
 
