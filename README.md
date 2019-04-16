@@ -21,10 +21,10 @@ as map of Newark, map markers, and front-end search fitler.
 
 ### Prerequisites
 
-'''
+```
 NodeJs
 NPM
-'''
+```
 
 ### Installing
 
