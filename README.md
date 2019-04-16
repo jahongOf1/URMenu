@@ -46,14 +46,8 @@ workaround function.
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) - cloud db used to store and pull data from
 * [Foursquare API](https://developer.foursquare.com/) - API used during development.
 
-## Contributing
-
-Jae Hong - myself, front-end development
-
-
-## Versioning
-
 ## Authors
+Jae Hong - myself, front-end development
 
 
 
