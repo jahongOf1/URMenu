@@ -56,7 +56,6 @@ Due to the rushed nature of the hackathon we were forced to build
 CORS workaround function to make some things work. 
 
 I'm only a front-end engineer.
-Don't @ me.
 
 ## Built With
 
@@ -69,8 +68,10 @@ Don't @ me.
 
 ## Authors
 Jae Hong - myself, front-end development
-
-
+Rafael Gaia - team leader, his repo is the original.
+Xinyi Zhang - our backend engineer
+Harsajh Singh - Front-end developer and one of our main speakers
+Emannuel Diaz - market research and another of our main speakers
 
 ## License
 
