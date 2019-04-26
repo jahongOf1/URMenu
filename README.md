@@ -13,6 +13,7 @@ up-to date information on the restaurants.
 Primarily the menu which would have information that would allow 
 the items to be sorted via ingredients/special dietary restrictions.
 
+It was the team's first time using ReactJS, and first time working on web programming period.
 Due to limited time, I could only implement basic functions such
 as map of Newark, map markers, and front-end search fitler using ReactJS.
 
