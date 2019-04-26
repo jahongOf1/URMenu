@@ -13,8 +13,8 @@ up-to date information on the restaurants.
 Primarily the menu which would have information that would allow 
 the items to be sorted via ingredients/special dietary restrictions.
 
-Due to limited time, we could only implement basic functions such
-as map of Newark, map markers, and front-end search fitler.
+Due to limited time, I could only implement basic functions such
+as map of Newark, map markers, and front-end search fitler using ReactJS.
 
 ## Getting Started
 
@@ -54,8 +54,6 @@ npm run install
 In the current build, we do not recommend deploying it since it.
 Due to the rushed nature of the hackathon we were forced to build 
 CORS workaround function to make some things work. 
-
-I'm only a front-end engineer.
 
 ## Built With
 
