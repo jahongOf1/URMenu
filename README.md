@@ -67,11 +67,11 @@ I'm only a front-end engineer.
 * [Foursquare API](https://developer.foursquare.com/) - API used during development.
 
 ## Authors
-Jae Hong - myself, front-end development
-Rafael Gaia - team leader, his repo is the original.
-Xinyi Zhang - our backend engineer
-Harsajh Singh - Front-end developer and one of our main speakers
-Emannuel Diaz - market research and another of our main speakers
+* [Jae Hong](https://github.com/jahongOf1) - myself, front-end development
+* [Rafael Gaia](https://github.com/rafagaia) - team leader, his repo is the original.
+* [Xinyi Zhang](https://github.com/XxZhang2017) - our backend engineer
+* [Harsajh Singh](https://github.com/Hsingh209) - Front-end developer and one of our main speakers
+* [Emannuel Diaz](https://github.com/diazmanne) - market research and another of our main speakers
 
 ## License
 
